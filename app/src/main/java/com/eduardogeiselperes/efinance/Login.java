@@ -42,37 +42,7 @@ public class Login extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String email = emailInput.getText().toString().trim();
-                String password = passwordInput.getText().toString().trim();
-
-                if(TextUtils.isEmpty(email)){
-                    Toast.makeText(Login.this, "Please enter an email", Toast.LENGTH_LONG).show();
-                    return;
-                }
-                if(TextUtils.isEmpty(password)){
-                    Toast.makeText(Login.this, "Please enter a password", Toast.LENGTH_LONG).show();
-                    return;
-                }
-                if(password.length() < 6){
-                    Toast.makeText(Login.this, "Password must have " +
-                            "6 or more characters", Toast.LENGTH_LONG).show();
-                    return;
-                }
-                auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            //Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_LONG).show();
-                            Intent i = new Intent(Login.this, Welcome.class);
-                            startActivity(i);
-                        }
-                        else{
-                            Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-                //loginForm();
+                login();
             }
         });
 
@@ -82,9 +52,40 @@ public class Login extends AppCompatActivity {
                 Intent i = new Intent(Login.this, Register.class);
                 startActivity(i);
             }
-       });
+        });
+    }
 
+    //login function
+    public void login(){
+        String email = emailInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
 
+        if(TextUtils.isEmpty(email)){
+            Toast.makeText(Login.this, "Please enter an email", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(password)){
+            Toast.makeText(Login.this, "Please enter a password", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(password.length() < 6){
+            Toast.makeText(Login.this, "Password must have " +
+                    "6 or more characters", Toast.LENGTH_LONG).show();
+            return;
+        }
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    //Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(Login.this, Welcome.class);
+                    startActivity(i);
+                }
+                else{
+                    Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
 }
