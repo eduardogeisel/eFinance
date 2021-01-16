@@ -4,4 +4,7 @@
     <string name="login_email">Email</string>
     <string name="login_login">Login</string>
     <string name="login_error">Something went wrong! Please check your username and password!</string>
+    <string name="register_email">Enter your email</string>
+    <string name="register_passowrd">Enter your desired password</string>
+    <string name="register_register">Register Account</string>
 </resources>
