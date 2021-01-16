@@ -34,7 +34,7 @@ public class Register extends AppCompatActivity {
 
         //Getting the Id's
         registerEmail = findViewById(R.id.editTextRegisterEmail);
-        registerPass = findViewById(R.id.editTextTextPassword);
+        registerPass = findViewById(R.id.editTextRegisterPassword);
         registerBtn = findViewById(R.id.btnRegister);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
@@ -48,22 +48,6 @@ public class Register extends AppCompatActivity {
     private void register() {
         String email = registerEmail.getText().toString().trim();
         String password = registerPass.getText().toString().trim();
-
-//        if(!checkEmail()) {
-//            return;
-//        }
-//        if(!checkPassword()) {
-//            return;
-//        }
-//        if(!checkPasswordConfirm()) {
-//            return;
-//        }
-
-//        registerInputLayoutEmail.setErrorEnabled(false);
-//        registerInputLayoutPass.setErrorEnabled(false);
-//        registerInputLayoutPassConfirm.setErrorEnabled(false);
-//
-//        progressBar.setVisibility(View.VISIBLE);
 
         //create a user
         auth.createUserWithEmailAndPassword(email, password)
