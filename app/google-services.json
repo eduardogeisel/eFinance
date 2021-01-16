@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "897560795336",
+    "project_id": "efinance-f2517",
+    "storage_bucket": "efinance-f2517.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897560795336:android:c416c5bc3148f034d2adfd",
+        "android_client_info": {
+          "package_name": "com.eduardogeiselperes.efinance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897560795336-086035v29va9nitd0lke5gntc6n0qc8k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5uht20sS9dl6zm20YbPp6VPxx5lkQ21c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897560795336-086035v29va9nitd0lke5gntc6n0qc8k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
