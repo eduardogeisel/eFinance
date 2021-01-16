@@ -19,8 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Register extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private EditText registerEmail;
-    private EditText registerPass;
+    private EditText registerEmail, registerPass, registerPassConfirm;
     private Button registerBtn;
     private static final String TAG = "FIREBASE";
 
@@ -35,6 +34,7 @@ public class Register extends AppCompatActivity {
         //Getting the Id's
         registerEmail = findViewById(R.id.editTextRegisterEmail);
         registerPass = findViewById(R.id.editTextRegisterPassword);
+        registerPassConfirm = findViewById(R.id.editTextRegisterPasswordConfirm);
         registerBtn = findViewById(R.id.btnRegister);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
@@ -47,26 +47,35 @@ public class Register extends AppCompatActivity {
 
     private void register() {
         String email = registerEmail.getText().toString().trim();
-        String password = registerPass.getText().toString().trim();
+        String password = registerPass.getText().toString().trim().toLowerCase();
+        String passwordConfirm = registerPassConfirm.getText().toString().trim().toLowerCase();
 
-        //create a user
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "user creation: Complete");
+        if(password.equals(passwordConfirm)){
+            //create a user
+            auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            Log.d(TAG, "user creation: Complete");
 
-                        //progressBar.setVisibility(View.GONE);
+                            //progressBar.setVisibility(View.GONE);
 
-                        if(!task.isSuccessful()) {
-                            Log.d(TAG, "Creation failure." + task.getException());
-                        } else {
-                            startActivity(new Intent(Register.this, Login.class));
-                            finish();
+                            if(!task.isSuccessful()) {
+                                Log.d(TAG, "Creation failure." + task.getException());
+                            } else {
+                                startActivity(new Intent(Register.this, Login.class));
+                                finish();
+                            }
                         }
-                    }
-                });
-        Toast.makeText(getApplicationContext(), "Thank you for registering!", Toast.LENGTH_SHORT).show();
+                    });
+            Toast.makeText(getApplicationContext(), "Thank you for registering!", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "Passwords don't match, please try again!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
     }
 
 }
