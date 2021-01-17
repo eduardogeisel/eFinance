@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">eFinance</string>
+
+    <!-- FEATURE_Login_egp85 -->
     <string name="login_passowrd">Password</string>
     <string name="login_email">Email</string>
     <string name="login_login">Login</string>
@@ -11,4 +13,13 @@
     <string name="login_goToRegistration">Create account</string>
     <string name="logout">Logout</string>
     <string name="register_passowrdConfirmation">Enter password again</string>
+
+    <!-- FEATURE_RealtimeDB_egp85 -->
+    <string name="financing_name">Name</string>
+    <string name="financing_type">Type</string>
+    <string name="financing_value">value</string>
+    <string name="financing_firstPaymentDate">First Payment</string>
+    <string name="financing_years">Length (years)</string>
+    <string name="financing_submit">Submit</string>
+
 </resources>
