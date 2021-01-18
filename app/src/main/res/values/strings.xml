@@ -11,7 +11,7 @@
     <string name="register_register">Create Account</string>
     <string name="register_title">Please create you account by entering your information below.</string>
     <string name="login_goToRegistration">Create account</string>
-    <string name="logout">Logout</string>
+
     <string name="register_passowrdConfirmation">Enter password again</string>
 
     <!-- FEATURE_RealtimeDB_egp85 -->
@@ -22,5 +22,10 @@
     <string name="financing_years">Length (years)</string>
     <string name="financing_submit">Submit</string>
     <string name="welcome_newFinancing">Create a new Financing</string>
+
+
+    <!-- Generic strings -->
+    <string name="logout">Logout</string>
+    <string name="home">Home</string>
 
 </resources>
