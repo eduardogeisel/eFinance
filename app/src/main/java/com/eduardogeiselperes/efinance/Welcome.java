@@ -17,7 +17,7 @@ public class Welcome extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser user;
     private TextView txtViewWelcome;
-    private Button btnLogout;
+    private Button btnLogout, btnNewFinancing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +27,14 @@ public class Welcome extends AppCompatActivity {
         //Getting id's
         txtViewWelcome = findViewById(R.id.txtViewWelcome);
         btnLogout = findViewById(R.id.btnLogout);
+        btnNewFinancing = findViewById(R.id.btnNewFinancing);
 
         //getting logged in user's information
         user = FirebaseAuth.getInstance().getCurrentUser();
         String userEmail = user.getEmail();
+
+        //greeting logged in user
+        txtViewWelcome.setText("Welcome, " + userEmail + " ! We're happy to see you!");
 
         //logging user out
         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +44,16 @@ public class Welcome extends AppCompatActivity {
                 startActivity(new Intent(Welcome.this, Login.class));
             }
         });
+
+        //going to new financing activity
+        btnNewFinancing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Welcome.this, Financing.class));
+            }
+        });
+
+
 
 
 

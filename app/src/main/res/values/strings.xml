@@ -21,5 +21,6 @@
     <string name="financing_firstPaymentDate">First Payment</string>
     <string name="financing_years">Length (years)</string>
     <string name="financing_submit">Submit</string>
+    <string name="welcome_newFinancing">Create a new Financing</string>
 
 </resources>
