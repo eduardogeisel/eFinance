@@ -86,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextFinancingName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -102,19 +102,19 @@
         app:layout_constraintVertical_bias="0.576" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerFinancingType"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toStartOf="@+id/editTextFinancingName"
         app:layout_constraintTop_toTopOf="@+id/textView2"
         android:entries="@array/createFinancing_spinner"/>
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/editTextFinancingValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -123,11 +123,11 @@
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/spinnerFinancingType"
         app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/editTextFinancingDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -136,11 +136,11 @@
         android:inputType="date"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/editTextFinancingValue"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/editTextFinancingLength"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -149,7 +149,7 @@
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editTextDate"
+        app:layout_constraintStart_toStartOf="@+id/editTextFinancingDate"
         app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <Button
@@ -164,6 +164,6 @@
         android:text="@string/financing_submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextFinancingLength" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
