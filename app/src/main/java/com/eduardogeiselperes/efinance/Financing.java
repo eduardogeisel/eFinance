@@ -22,4 +22,44 @@ public class Financing {
         this.firstPayment = firstPayment;
         this.years = years;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    public String getFirstPayment() {
+        return firstPayment;
+    }
+
+    public void setFirstPayment(String firstPayment) {
+        this.firstPayment = firstPayment;
+    }
+
+    public double getYears() {
+        return years;
+    }
+
+    public void setYears(double years) {
+        this.years = years;
+    }
 }
