@@ -27,6 +27,9 @@
     <!-- Generic strings -->
     <string name="logout">Logout</string>
     <string name="home">Home</string>
+    <string name="down_payment">Down Payment</string>
+    <string name="taxes">Tax %</string>
+    <string name="interestRate">Interest Rate</string>
 
     <!-- Spinner -->
     <string-array name="createFinancing_spinner">
