@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EFinance">
-        <activity android:name=".CreateFinancing"></activity>
+        <activity android:name=".MyFinancing"></activity>
+        <activity android:name=".CreateFinancing" />
         <activity android:name=".Register" />
         <activity android:name=".Welcome" />
         <activity android:name=".Login">

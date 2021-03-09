@@ -66,7 +66,7 @@ public class CreateFinancing extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //inserting data into firebase realtime DB
-                reference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("Financing Number"+key);
+                reference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("FinancingNumber"+key);
 
                 reference.child("name").setValue(name.getText().toString());
                 reference.child("type").setValue(type.getSelectedItem().toString());
