@@ -17,7 +17,7 @@
     <!-- FEATURE_RealtimeDB_egp85 -->
     <string name="financing_name">Name</string>
     <string name="financing_type">Type</string>
-    <string name="financing_value">value</string>
+    <string name="financing_value">Value</string>
     <string name="financing_firstPaymentDate">First Payment</string>
     <string name="financing_years">Length (years)</string>
     <string name="financing_submit">Submit</string>
