@@ -24,11 +24,8 @@ import java.util.Random;
 public class CreateFinancing extends AppCompatActivity {
 
     private Button btnHome;
-    private EditText name;
     private Spinner type;
-    private EditText value;
-    private EditText firstPayment;
-    private EditText years;
+    private EditText name, value, years, downPayment, tax, interestRate;
     private Button btnSubmit;
     DatabaseReference reference;
     Integer key = new Random().nextInt();
@@ -47,9 +44,12 @@ public class CreateFinancing extends AppCompatActivity {
         name = findViewById(R.id.editTextFinancingName);
         type = findViewById(R.id.spinnerFinancingType);
         value = findViewById(R.id.editTextFinancingValue);
-        //firstPayment = findViewById(R.id.editTextFinancingDate);
         years = findViewById(R.id.editTextFinancingLength);
+        downPayment = findViewById(R.id.editTextDownPayment);
+        tax = findViewById(R.id.editTextTaxes);
+        interestRate = findViewById(R.id.editTextInterestRate);
         btnSubmit = findViewById(R.id.btnFinancingSubmit);
+
 
         //getting user email
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -72,6 +72,9 @@ public class CreateFinancing extends AppCompatActivity {
                 reference.child("type").setValue(type.getSelectedItem().toString());
                 reference.child("value").setValue(value.getText().toString());
                 reference.child("years").setValue(years.getText().toString());
+                reference.child("downPayment").setValue(downPayment.getText().toString());
+                reference.child("tax").setValue(tax.getText().toString());
+                reference.child("interestRate").setValue(interestRate.getText().toString());
 
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
