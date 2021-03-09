@@ -47,7 +47,7 @@ public class CreateFinancing extends AppCompatActivity {
         name = findViewById(R.id.editTextFinancingName);
         type = findViewById(R.id.spinnerFinancingType);
         value = findViewById(R.id.editTextFinancingValue);
-        firstPayment = findViewById(R.id.editTextFinancingDate);
+        //firstPayment = findViewById(R.id.editTextFinancingDate);
         years = findViewById(R.id.editTextFinancingLength);
         btnSubmit = findViewById(R.id.btnFinancingSubmit);
 
@@ -66,12 +66,11 @@ public class CreateFinancing extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //inserting data into firebase realtime DB
-                reference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("FinancingNumber"+key);
+                reference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("Financing Number"+key);
 
                 reference.child("name").setValue(name.getText().toString());
                 reference.child("type").setValue(type.getSelectedItem().toString());
                 reference.child("value").setValue(value.getText().toString());
-                reference.child("firstPayment").setValue(firstPayment.getText().toString());
                 reference.child("years").setValue(years.getText().toString());
 
                 reference.addValueEventListener(new ValueEventListener() {

@@ -8,18 +8,16 @@ public class Financing {
     public String name;
     public String type;
     public double value;
-    public String firstPayment;
     public double years;
 
     public Financing(){
         //Default constructor to call DataSnapshot.getValue(Financing.class)
     }
 
-    public Financing(String name, String type, double value, String firstPayment, double years) {
+    public Financing(String name, String type, double value,  double years) {
         this.name = name;
         this.type = type;
         this.value = value;
-        this.firstPayment = firstPayment;
         this.years = years;
     }
 
@@ -47,13 +45,6 @@ public class Financing {
         this.value = value;
     }
 
-    public String getFirstPayment() {
-        return firstPayment;
-    }
-
-    public void setFirstPayment(String firstPayment) {
-        this.firstPayment = firstPayment;
-    }
 
     public double getYears() {
         return years;
