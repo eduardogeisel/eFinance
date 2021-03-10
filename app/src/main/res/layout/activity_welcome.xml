@@ -42,6 +42,8 @@
             android:id="@+id/txtViewWelcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:text=""
             android:textColor="#221F1F"
             android:textSize="16sp" />
