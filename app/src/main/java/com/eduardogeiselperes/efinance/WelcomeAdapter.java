@@ -47,6 +47,7 @@ public class WelcomeAdapter extends RecyclerView.Adapter<WelcomeAdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            myFinancing = (TextView)itemView.findViewById(R.id.textViewMyFinancing);
         }
     }
 }
