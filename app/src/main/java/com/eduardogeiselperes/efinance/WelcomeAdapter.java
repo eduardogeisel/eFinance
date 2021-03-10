@@ -1,6 +1,9 @@
 package com.eduardogeiselperes.efinance;
 
 import android.content.Context;
+
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +36,30 @@ public class WelcomeAdapter extends RecyclerView.Adapter<WelcomeAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.myFinancing.setText(Financing.get(position).getName());
 
-        String getMyFinancing = Financing.get(position).getName();
+        String getName = Financing.get(position).getName();
+        String getType = Financing.get(position).getType();
+        String getValue = Financing.get(position).getValue();
+        String getYears = Financing.get(position).getYears();
+        String getDownPayment = Financing.get(position).getDownPayment();
+        String getTaxes = Financing.get(position).getTaxes();
+        String getInterestRate = Financing.get(position).getInterestRate();
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), MyFinancing.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("getName", getName);
+                bundle.putString("getType", getType);
+                bundle.putString("getValue", getValue);
+                bundle.putString("getYears", getYears);
+                bundle.putString("getDownPayment", getDownPayment);
+                bundle.putString("getTaxes", getTaxes);
+                bundle.putString("getInterestRate", getInterestRate);
+                i.putExtras(bundle);
+                v.getContext().startActivity(i);
+            }
+        });
 
     }
 
