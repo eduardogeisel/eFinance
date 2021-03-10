@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    app:cardBackgroundColor="#CFCBD1"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="3dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
     app:contentPadding="4dp"
     android:foreground="?selectableItemBackground"
-    android:clickable="true">
+    android:clickable="true"
+    >
 
     <TextView
         android:id="@+id/textViewMyFinancing"
