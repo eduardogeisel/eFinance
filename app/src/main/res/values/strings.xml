@@ -31,6 +31,11 @@
     <string name="taxes">Tax %</string>
     <string name="interestRate">Interest Rate</string>
 
+    <!--MyFinancing strings-->
+    <string name="financing_name2">Financing Name:</string>
+    <string name="payment_type">Payment Type:</string>
+    <string name="payment_value">Payment Value:</string>
+
     <!-- Spinner -->
     <string-array name="createFinancing_spinner">
         <item>Weekly</item>
