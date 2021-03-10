@@ -7,24 +7,14 @@ public class Financing {
 
     public String name;
     public String type;
-    public double value;
-    public double years;
-    public double downPayment;
-    public double taxes;
-    public double interestRate;
+    public String value;
+    public String years;
+    public String downPayment;
+    public String taxes;
+    public String interestRate;
 
-    public Financing(){
+    public Financing() {
         //Default constructor to call DataSnapshot.getValue(Financing.class)
-    }
-
-    public Financing(String name, String type, double value, double years, double downPayment, double taxes, double interestRate) {
-        this.name = name;
-        this.type = type;
-        this.value = value;
-        this.years = years;
-        this.downPayment = downPayment;
-        this.taxes = taxes;
-        this.interestRate = interestRate;
     }
 
     public String getName() {
@@ -43,43 +33,43 @@ public class Financing {
         this.type = type;
     }
 
-    public double getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(String value) {
         this.value = value;
     }
 
-    public double getYears() {
+    public String getYears() {
         return years;
     }
 
-    public void setYears(double years) {
+    public void setYears(String years) {
         this.years = years;
     }
 
-    public double getDownPayment() {
+    public String getDownPayment() {
         return downPayment;
     }
 
-    public void setDownPayment(double downPayment) {
+    public void setDownPayment(String downPayment) {
         this.downPayment = downPayment;
     }
 
-    public double getTaxes() {
+    public String getTaxes() {
         return taxes;
     }
 
-    public void setTaxes(double taxes) {
+    public void setTaxes(String taxes) {
         this.taxes = taxes;
     }
 
-    public double getInterestRate() {
+    public String getInterestRate() {
         return interestRate;
     }
 
-    public void setInterestRate(double interestRate) {
+    public void setInterestRate(String interestRate) {
         this.interestRate = interestRate;
     }
 }
