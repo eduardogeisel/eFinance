@@ -25,7 +25,7 @@ public class CreateFinancing extends AppCompatActivity {
 
     private Button btnHome;
     private Spinner type;
-    private EditText name, value, years, downPayment, tax, interestRate;
+    private EditText name, value, years, downPayment, contribution, interestRate;
     private Button btnSubmit;
     DatabaseReference reference;
     Integer key = new Random().nextInt();
@@ -46,7 +46,7 @@ public class CreateFinancing extends AppCompatActivity {
         value = findViewById(R.id.editTextFinancingValue);
         years = findViewById(R.id.editTextFinancingLength);
         downPayment = findViewById(R.id.editTextDownPayment);
-        tax = findViewById(R.id.editTextTaxes);
+        contribution = findViewById(R.id.editTextTaxes);
         interestRate = findViewById(R.id.editTextInterestRate);
         btnSubmit = findViewById(R.id.btnFinancingSubmit);
 
@@ -73,7 +73,7 @@ public class CreateFinancing extends AppCompatActivity {
                 reference.child("value").setValue(value.getText().toString());
                 reference.child("years").setValue(years.getText().toString());
                 reference.child("downPayment").setValue(downPayment.getText().toString());
-                reference.child("tax").setValue(tax.getText().toString());
+                reference.child("contribution").setValue(contribution.getText().toString());
                 reference.child("interestRate").setValue(interestRate.getText().toString());
 
                 reference.addValueEventListener(new ValueEventListener() {

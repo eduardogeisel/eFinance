@@ -10,7 +10,8 @@ public class Financing {
     public String value;
     public String years;
     public String downPayment;
-    public String taxes;
+    public String contribution; //taxes...
+    //public String taxes;
     public String interestRate;
 
     public Financing() {
@@ -57,12 +58,12 @@ public class Financing {
         this.downPayment = downPayment;
     }
 
-    public String getTaxes() {
-        return taxes;
+    public String getContribution() {
+        return contribution;
     }
 
-    public void setTaxes(String taxes) {
-        this.taxes = taxes;
+    public void setContribution(String contribution) {
+        this.contribution = contribution;
     }
 
     public String getInterestRate() {
@@ -73,3 +74,4 @@ public class Financing {
         this.interestRate = interestRate;
     }
 }
+

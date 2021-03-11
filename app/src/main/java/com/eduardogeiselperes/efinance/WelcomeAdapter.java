@@ -41,7 +41,7 @@ public class WelcomeAdapter extends RecyclerView.Adapter<WelcomeAdapter.ViewHold
         String getValue = Financing.get(position).getValue();
         String getYears = Financing.get(position).getYears();
         String getDownPayment = Financing.get(position).getDownPayment();
-        String getTaxes = Financing.get(position).getTaxes();
+        String getContribution = Financing.get(position).getContribution();//taxes
         String getInterestRate = Financing.get(position).getInterestRate();
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +54,7 @@ public class WelcomeAdapter extends RecyclerView.Adapter<WelcomeAdapter.ViewHold
                 bundle.putString("getValue", getValue);
                 bundle.putString("getYears", getYears);
                 bundle.putString("getDownPayment", getDownPayment);
-                bundle.putString("getTaxes", getTaxes);
+                bundle.putString("getContribution", getContribution);
                 bundle.putString("getInterestRate", getInterestRate);
                 i.putExtras(bundle);
                 v.getContext().startActivity(i);
