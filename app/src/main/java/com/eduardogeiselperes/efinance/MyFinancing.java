@@ -16,7 +16,6 @@ import java.text.DecimalFormat;
 public class MyFinancing extends AppCompatActivity {
 
     TextView name, type, value;
-    DatabaseReference databaseReference;
 
     private FirebaseUser user; //Firebase obj
     private String userEmail;
