@@ -49,20 +49,25 @@ public class MyFinancing extends AppCompatActivity {
 
         double valueWithTaxes = valueDouble * ((contributionDouble/100)+1);
         double borrowedAmount = (valueWithTaxes - downPaymentDouble);
-        double interest = (borrowedAmount)*(interestRateDouble/100);
-        double totalDebt = borrowedAmount + interest;
+
+        //calculating debt with yearly interest rate
+        double currentDebt = borrowedAmount;
+        for(int i = 0; i < yearsInt; i++){
+            currentDebt = (currentDebt*interestRateDouble/100) + currentDebt;
+        }
 
         double payments;
         if(getType.equals("Weekly")){
-            payments = totalDebt/(yearsInt * (365.25/7));
+            payments = currentDebt/(yearsInt * (365.25/7));
         }
         else if(getType.equals("Bi-weekly")){
-            payments = totalDebt/(yearsInt * (365.25/14));
+            payments = currentDebt/(yearsInt * (365.25/14));
         }
         else{
-            payments = totalDebt/(yearsInt * (12));
+            payments = currentDebt/(yearsInt * (12));
         }
 
+        //formatting payments to 2 decimal spaces
         DecimalFormat df = new DecimalFormat("0.00");
         String pay = df.format(payments);
 
