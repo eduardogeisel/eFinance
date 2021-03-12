@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import java.text.DecimalFormat;
 public class MyFinancing extends AppCompatActivity {
 
     TextView name, type, value;
+    Button btnEditFinancing;
 
     private FirebaseUser user; //Firebase obj
     private String userEmail;
@@ -27,6 +29,8 @@ public class MyFinancing extends AppCompatActivity {
 
         getUser();
 
+        btnEditFinancing = findViewById(R.id.btnEditFinancing);
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
@@ -35,6 +39,9 @@ public class MyFinancing extends AppCompatActivity {
         value = findViewById(R.id.tvMyFinancingPaymentValue);
 
         String getName = bundle.getString("getName");
+        //setting text to button according to financing name
+        btnEditFinancing.setText("Edit " + getName + " Financing");
+
         String getType = bundle.getString("getType");
         String getValue = bundle.getString("getValue");
         double valueDouble = Double.parseDouble(getValue);
