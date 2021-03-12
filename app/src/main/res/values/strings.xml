@@ -35,6 +35,9 @@
     <string name="financing_name2">Financing Name:</string>
     <string name="payment_type">Payment Type:</string>
     <string name="payment_value">Payment Value:</string>
+    <string name="editFinancing">Edit This Financing</string>
+    <string name="saveEditFinancing">Save Edited Financing</string>
+    <string name="deleteFinancing">Delete Financing</string>
 
     <!-- Spinner -->
     <string-array name="createFinancing_spinner">
