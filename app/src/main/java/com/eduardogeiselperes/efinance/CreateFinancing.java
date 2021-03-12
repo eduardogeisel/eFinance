@@ -65,29 +65,39 @@ public class CreateFinancing extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //inserting data into firebase realtime DB
-                reference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("FinancingNumber"+key);
 
-                reference.child("name").setValue(name.getText().toString());
-                reference.child("type").setValue(type.getSelectedItem().toString());
-                reference.child("value").setValue(value.getText().toString());
-                reference.child("years").setValue(years.getText().toString());
-                reference.child("downPayment").setValue(downPayment.getText().toString());
-                reference.child("contribution").setValue(contribution.getText().toString());
-                reference.child("interestRate").setValue(interestRate.getText().toString());
+                if(name.getText().toString().equals("") || value.getText().toString().equals("") || years.getText().toString().equals("")
+                || downPayment.getText().toString().equals("") || contribution.getText().toString().equals("") || interestRate.getText().toString().equals("")){
+                    Toast.makeText(CreateFinancing.this, "Please make sure every option has data.", Toast.LENGTH_SHORT).show();
+                }
+                else{
 
-                reference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Toast.makeText(CreateFinancing.this, "Financing created", Toast.LENGTH_SHORT).show();
-                    }
+                    //inserting data into firebase realtime DB
+                    reference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("FinancingNumber"+key);
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                    reference.child("name").setValue(name.getText().toString());
+                    reference.child("type").setValue(type.getSelectedItem().toString());
+                    reference.child("value").setValue(value.getText().toString());
+                    reference.child("years").setValue(years.getText().toString());
+                    reference.child("downPayment").setValue(downPayment.getText().toString());
+                    reference.child("contribution").setValue(contribution.getText().toString());
+                    reference.child("interestRate").setValue(interestRate.getText().toString());
 
-                    }
-                });
+                    reference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            Toast.makeText(CreateFinancing.this, "Financing created.", Toast.LENGTH_SHORT).show();
+                        }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                    Intent i = new Intent(CreateFinancing.this, Welcome.class);
+                    startActivity(i);
+                }
             }
         });
     }
