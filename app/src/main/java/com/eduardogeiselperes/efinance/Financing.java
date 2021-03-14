@@ -13,6 +13,7 @@ public class Financing {
     public String contribution; //taxes...
     //public String taxes;
     public String interestRate;
+    public int key;
 
     public Financing() {
         //Default constructor to call DataSnapshot.getValue(Financing.class)
@@ -72,6 +73,14 @@ public class Financing {
 
     public void setInterestRate(String interestRate) {
         this.interestRate = interestRate;
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
     }
 }
 

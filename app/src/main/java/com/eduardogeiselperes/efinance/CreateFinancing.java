@@ -82,6 +82,7 @@ public class CreateFinancing extends AppCompatActivity {
                     reference.child("downPayment").setValue(downPayment.getText().toString());
                     reference.child("contribution").setValue(contribution.getText().toString());
                     reference.child("interestRate").setValue(interestRate.getText().toString());
+                    reference.child("key").setValue(key);
 
                     reference.addValueEventListener(new ValueEventListener() {
                         @Override

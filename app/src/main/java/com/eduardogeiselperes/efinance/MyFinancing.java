@@ -58,6 +58,7 @@ public class MyFinancing extends AppCompatActivity {
         double contributionDouble = Double.parseDouble(getContribution);
         String getInterestRate = bundle.getString("getInterestRate");
         double interestRateDouble = Double.parseDouble(getInterestRate);
+        String getKey = bundle.getString("key");
 
         double valueWithTaxes = valueDouble * ((contributionDouble/100)+1);
         double borrowedAmount = (valueWithTaxes - downPaymentDouble);
@@ -90,8 +91,7 @@ public class MyFinancing extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String key = getIntent().getStringExtra("key");
-                databaseReference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("FinancingNumber"+key);
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("FinancingNumber"+getKey);
 
                 databaseReference.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -112,18 +112,4 @@ public class MyFinancing extends AppCompatActivity {
     }
 
 
-//    public void deleteFinancing(View view) {
-//        final String key = getIntent().getStringExtra("key");
-//        databaseReference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("FinancingNumber"+key);
-//
-//        databaseReference.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-//            @Override
-//            public void onSuccess(Void aVoid) {
-//                Intent i = new Intent(MyFinancing.this, Welcome.class);
-//                i.putExtra("user", userEmail);
-//                startActivity(i);
-//                finish();
-//            }
-//        });
-//    }
 }
