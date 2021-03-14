@@ -109,6 +109,18 @@ public class MyFinancing extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MyFinancing.this, EditFinancing.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("getName", getName);
+                bundle.putString("getType", getType);
+                bundle.putString("getValue", getValue);
+                bundle.putString("getYears", getYears);
+                bundle.putString("getDownPayment", getDownPayment);
+                bundle.putString("getContribution", getContribution);
+                bundle.putString("getInterestRate", getInterestRate);
+                bundle.putString("key", getKey);
+                i.putExtras(bundle);
+
                 startActivity(i);
             }
         });
