@@ -104,6 +104,14 @@ public class MyFinancing extends AppCompatActivity {
                 });
             }
         });
+
+        btnEditFinancing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MyFinancing.this, EditFinancing.class);
+                startActivity(i);
+            }
+        });
     }
 
     public void getUser(){
