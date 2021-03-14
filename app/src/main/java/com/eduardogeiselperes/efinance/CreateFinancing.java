@@ -96,6 +96,7 @@ public class CreateFinancing extends AppCompatActivity {
                     });
 
                     Intent i = new Intent(CreateFinancing.this, Welcome.class);
+                    i.putExtra("key", key);
                     startActivity(i);
                 }
             }

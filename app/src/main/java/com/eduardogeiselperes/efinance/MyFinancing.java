@@ -4,20 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DecimalFormat;
 
 public class MyFinancing extends AppCompatActivity {
 
     TextView name, type, value;
-    Button btnEditFinancing;
+    Button btnEditFinancing, btnDelete;
+    DatabaseReference databaseReference;
 
     private FirebaseUser user; //Firebase obj
     private String userEmail;
@@ -30,6 +34,7 @@ public class MyFinancing extends AppCompatActivity {
         getUser();
 
         btnEditFinancing = findViewById(R.id.btnEditFinancing);
+        btnDelete = findViewById(R.id.btnDeleteFinancing);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -81,10 +86,44 @@ public class MyFinancing extends AppCompatActivity {
         name.setText(getName);
         type.setText(getType);
         value.setText(pay);
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String key = getIntent().getStringExtra("key");
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("FinancingNumber"+key);
+
+                databaseReference.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Intent i = new Intent(MyFinancing.this, Welcome.class);
+                        i.putExtra("user", userEmail);
+                        startActivity(i);
+                        finish();
+                    }
+                });
+            }
+        });
     }
 
     public void getUser(){
         user = FirebaseAuth.getInstance().getCurrentUser();
         userEmail = user.getEmail().replace(".", "&");
     }
+
+
+//    public void deleteFinancing(View view) {
+//        final String key = getIntent().getStringExtra("key");
+//        databaseReference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("FinancingNumber"+key);
+//
+//        databaseReference.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+//            @Override
+//            public void onSuccess(Void aVoid) {
+//                Intent i = new Intent(MyFinancing.this, Welcome.class);
+//                i.putExtra("user", userEmail);
+//                startActivity(i);
+//                finish();
+//            }
+//        });
+//    }
 }
