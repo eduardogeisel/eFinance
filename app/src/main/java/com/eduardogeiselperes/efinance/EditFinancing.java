@@ -38,8 +38,6 @@ public class EditFinancing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_financing);
 
-
-
         editTextEditDownPayment = findViewById(R.id.editTextEditDownPayment);
         editTextEditName = findViewById(R.id.editTextEditName);
         editTextEditFinancingValue = findViewById(R.id.editTextEditFinancingValue);
@@ -116,10 +114,6 @@ public class EditFinancing extends AppCompatActivity {
                 });
             }
         });
-
-
-
-
     }
 
     public void getUser() {
