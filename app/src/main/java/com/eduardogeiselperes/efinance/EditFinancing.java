@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,12 +33,12 @@ public class EditFinancing extends AppCompatActivity {
     private FirebaseUser user;
     private String userEmail;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_financing);
+
+
 
         editTextEditDownPayment = findViewById(R.id.editTextEditDownPayment);
         editTextEditName = findViewById(R.id.editTextEditName);
@@ -62,7 +64,6 @@ public class EditFinancing extends AppCompatActivity {
         String getInterestRate = bundle.getString("getInterestRate");
         String getKey = bundle.getString("key");
 
-
         editTextEditName.setText(getName);
         editTextEditDownPayment.setText(getDownPayment);
         editTextEditFinancingLength.setText(getYears);
@@ -74,7 +75,7 @@ public class EditFinancing extends AppCompatActivity {
         if(getType.equals("Weekly")){
             spinnerEditFinancingType.setSelection(0);
         }
-        else if(getType.equals("Bi-Weekly")){
+        else if(getType.equals("Bi-weekly")){
             spinnerEditFinancingType.setSelection(1);
         }
         else{
@@ -85,7 +86,12 @@ public class EditFinancing extends AppCompatActivity {
         btnEditFinancingSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                databaseReference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail" + userEmail).child("FinancingNumber"+getKey);
+                if(editTextEditName.getText().toString().equals("") || editTextEditFinancingValue.getText().toString().equals("") || editTextEditFinancingLength.getText().toString().equals("")
+                        || editTextEditDownPayment.getText().toString().equals("") || editTextEditTaxes.getText().toString().equals("") || editTextEditInterestRate.getText().toString().equals("")){
+                    Toast.makeText(EditFinancing.this, "Please make sure every option has data.", Toast.LENGTH_SHORT).show();
+                }
+
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("Financing").child("userEmail: " + userEmail).child("FinancingNumber"+getKey);
 
                 databaseReference.child("name").setValue(editTextEditName.getText().toString());
                 databaseReference.child("type").setValue(spinnerEditFinancingType.getSelectedItem().toString());
