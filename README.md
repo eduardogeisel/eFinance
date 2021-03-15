@@ -11,4 +11,10 @@ App successfully released. User has to register to use the app, features include
 ### HOTFIX 1.0.1
 Updated CreateFinancig.java logic, not allowing user to create a financing without filling all the inputs with data. Before this fix, the app would crash if a user created a financing without all the data required.
 
+## RELEASE 1.1
+New features added to the app. These features will help the user to manage the financing that was created, either to simulate different scenarios or to update values. The idea was to make it more user friendly resourceful.
+New features:
+* Delete financing;
+* Edit financing;
+
 
